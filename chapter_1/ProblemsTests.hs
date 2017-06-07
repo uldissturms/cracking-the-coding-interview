@@ -5,12 +5,19 @@ import Problems
 import Test.Hspec
 import Text.Printf (printf)
 
-testUnique :: String -> Bool -> Spec
-testUnique for result =
+testUniqueNub for result =
   it (printf "is unique for: %s -> %s" for (show result)) $
-    unique for`shouldBe` result
+    uniqueNub for `shouldBe` result
+testUniqueSet for result =
+  it (printf "is unique for: %s -> %s" for (show result)) $
+    uniqueSet for `shouldBe` result
 
 main = hspec $ do
-  describe "unique" $ do
-    testUnique "abc" True
-    testUnique "aabc" False
+  describe "unique nub" $ do
+    testUniqueNub "abc" True
+    testUniqueNub "a" True
+    testUniqueNub "" True
+    testUniqueNub "aabc" False
+  describe "unique set" $ do
+    testUniqueSet "abc" True
+    testUniqueSet "aabc" False
