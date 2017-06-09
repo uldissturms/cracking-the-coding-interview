@@ -14,7 +14,7 @@ import Data.Set
 uniqueNub :: String -> Bool
 uniqueNub input = (nub input) == input
 
--- O(n + n*log n + n)
+-- O(n*log n)
 {-
 -- | /O(n*log n)/. Create a set from a list of elements.
   fromList :: Ord a => [a] -> Set a
