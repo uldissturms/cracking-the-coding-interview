@@ -2,6 +2,7 @@ module Problems where
 
 import Data.List
 import Data.Set
+import qualified Data.Map as Map
 
 -- Problem 1
 
@@ -12,7 +13,7 @@ import Data.Set
   nubBy eq (x:xs) = x : nubBy eq (filter (\ y -> not (eq x y)) xs)
 -}
 uniqueNub :: String -> Bool
-uniqueNub input = (nub input) == input
+uniqueNub input = nub input == input
 
 -- O(n*log n)
 {-
@@ -24,4 +25,16 @@ uniqueNub input = (nub input) == input
       ins t x = insert x t
 -}
 uniqueSet :: String -> Bool
-uniqueSet input = (toList $ fromList(input)) == input
+uniqueSet input = (toList $ fromList input) == input
+
+nextDifferent :: String -> Bool
+nextDifferent [] = True
+nextDifferent [_] = True
+nextDifferent (x:y:ys) = x /= y && (nextDifferent $ [y] ++ ys)
+
+-- O(n*log n)
+uniqueSort :: String -> Bool
+uniqueSort input = nextDifferent $ sort input
+
+-- O(n) - using a hashmap - learn more about Haskell to be able to implement
+-- Maybe use: http://hackage.haskell.org/package/hashtables

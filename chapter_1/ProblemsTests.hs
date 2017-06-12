@@ -11,6 +11,9 @@ testUniqueNub for result =
 testUniqueSet for result =
   it (printf "is unique for: %s -> %s" for (show result)) $
     uniqueSet for `shouldBe` result
+testUniqueSort for result =
+  it (printf "is unique for: %s -> %s" for (show result)) $
+    uniqueSort for `shouldBe` result
 
 main = hspec $ do
   describe "unique nub" $ do
@@ -21,3 +24,6 @@ main = hspec $ do
   describe "unique set" $ do
     testUniqueSet "abc" True
     testUniqueSet "aabc" False
+  describe "unique sort" $ do
+    testUniqueSort "abc" True
+    testUniqueSort "aabc" False
