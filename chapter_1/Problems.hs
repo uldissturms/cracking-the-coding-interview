@@ -34,7 +34,7 @@ nextDifferent (x:y:ys) = x /= y && (nextDifferent $ [y] ++ ys)
 
 -- O(n*log n)
 uniqueSort :: String -> Bool
-uniqueSort input = nextDifferent $ sort input
+uniqueSort = nextDifferent . sort
 
 -- O(n) - using a hashmap - learn more about Haskell to be able to implement
 -- Maybe use: http://hackage.haskell.org/package/hashtables
