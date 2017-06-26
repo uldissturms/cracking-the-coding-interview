@@ -1,4 +1,4 @@
-module Problems where
+module Unique where
 
 import Data.List
 import Data.Set

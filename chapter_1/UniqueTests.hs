@@ -1,6 +1,6 @@
-module ProblemsTests where
+module UniqueTests where
 
-import Problems
+import Unique
 
 import Test.Hspec
 import Text.Printf (printf)
